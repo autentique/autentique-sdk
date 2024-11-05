@@ -1,6 +1,6 @@
 <?php
 
-namespace Autentique\AutentiqueSDK\Utils;
+namespace Autentique\SDK\Utils;
 
 class Query {
     protected $resource;
@@ -23,7 +23,7 @@ class Query {
     public function setVariables($variables, $value, string $graphQuery) {
         if(is_array($variables) && is_array($value)) {
             for($i = 0; $i < count($variables); $i++) {
-                $variable = "\$" . $variable[$i];
+                $variable = "\$" . $variables[$i];
                 $graphQuery = str_replace($variable, $value[$i], $graphQuery);
             }
         } elseif(is_string($variables)) {

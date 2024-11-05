@@ -1,8 +1,8 @@
 <?php
 
-namespace Autentique\AutentiqueSDK\Tests;
+namespace Autentique\SDK\Tests;
 
-use Autentique\AutentiqueSDK\Utils\Api;
+use Autentique\SDK\Utils\Api;
 use PHPUnit\Framework\TestCase;
 
 class ApiTest extends TestCase {

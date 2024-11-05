@@ -1,9 +1,9 @@
 <?php
 
-namespace Autentique\AutentiqueSDK;
+namespace Autentique\SDK;
 
-use Autentique\AutentiqueSDK\Utils\Query;
-use Autentique\AutentiqueSDK\Utils\Api;
+use Autentique\SDK\Utils\Query;
+use Autentique\SDK\Utils\Api;
 
 class Documents {
     private $token;

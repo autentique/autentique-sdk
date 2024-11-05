@@ -1,6 +1,6 @@
 <?php
 
-namespace Autentique\AutentiqueSDK\Utils;
+namespace Autentique\SDK\Utils;
 
 use CURLFile;
 use Exception;
