@@ -25,4 +25,16 @@ class Documents {
         $graphQuery = $this->query->setVariables("docId", $documentId, $graphQuery);
         return $this->api->request($this->token, $graphQuery, "json");
     }
+
+    public function listDocuments(int $page = 1, int $limit = 30) {
+        $graphQuery = $this->query->query(__FUNCTION__);
+        $graphQuery = $this->query->setVariables(["limit", "page"], [$limit, $page], $graphQuery);
+        return $this->api->request($this->token, $graphQuery,"json");
+    }
+
+    public function listDocumentsByFolder(string $folderId, int $limit = 30, int $page = 1) {
+        $graphQuery = $this->query->query(__FUNCTION__);
+        $graphQuery = $this->query->setVariables(["folderId", "limit", "page"], [$folderId, $limit, $page], $graphQuery);
+        return $this->api->request($this->token, $graphQuery, "json");
+    }
 }   

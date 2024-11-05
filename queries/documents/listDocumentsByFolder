@@ -1,0 +1,13 @@
+"query{
+  documentsByFolder(folder_id: \"$folderId\", limit: $limit, page: $page) {
+    data {
+      id
+      name
+      qualified
+      sandbox
+      created_at
+      deleted_at
+    }
+    has_more_pages
+  }
+}"
