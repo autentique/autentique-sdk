@@ -1,0 +1,21 @@
+{
+    "name": "autentique/autentique-sdk",
+    "description": "SDK for Autentique GraphQL API",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "12.0.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Autentique\\AutentiqueSDK\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "andre-schenato",
+            "email": "andre@autentique.com.br"
+        }
+    ],
+    "minimum-stability": "dev"
+}
