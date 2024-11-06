@@ -9,7 +9,7 @@ class ApiTest extends TestCase {
     private $api;
 
     public function setUp() : void{
-        $this->api = new Api("https://api.autentique.com.br/v2/graphql");
+        $this->api = new Api();
     }
 
     public function testNoToken() {

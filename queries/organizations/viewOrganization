@@ -1,0 +1,36 @@
+"query {
+  organization {
+    id
+    uuid
+    name
+    cnpj
+    created_at
+    subscription {
+      name
+      documents
+      credits
+      bonus
+      has_premium_features
+      created_at
+      ends_at
+      bought_at
+    }
+    billing_customer {
+      id
+      name
+      email
+      cpf
+      cnpj
+      country
+      state
+      city
+      zip_code
+      number
+      street
+      district
+      complement
+      created_at
+      updated_at
+    }
+  }
+}"

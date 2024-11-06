@@ -13,11 +13,8 @@ class Api {
 
     private $timeout;
 
-    public function __construct(string $url, int $timeout = 60) {
-        if(empty($url)) {
-            throw new Exception("Empty url", 400);
-        }
-        $this->url = $url;
+    public function __construct(int $timeout = 60) {
+        $this->url = "https://api.autentique.com.br/v2/graphql";
         $this->timeout = $timeout;
     }
 

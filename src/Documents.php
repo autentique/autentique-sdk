@@ -16,7 +16,7 @@ class Documents {
 
     public function __construct(string $token = null, int $timeout = 60) {
         $this->token = $token;
-        $this->api = new API("https://api.autentique.com.br/v2/graphql", $timeout);
+        $this->api = new API();
         $this->query = new Query("documents");
     }
 
