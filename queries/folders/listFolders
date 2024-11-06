@@ -1,0 +1,21 @@
+"query {
+  folders(limit: $limit, page: $page) {
+    data {
+      id
+      name
+      slug
+      context
+      path
+      children_counter
+      created_at
+      updated_at
+    }
+    total
+    per_page
+    current_page
+    last_page
+    from
+    to
+    has_more_pages
+  }
+}"

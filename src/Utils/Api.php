@@ -70,7 +70,7 @@ class Api {
     public function request(
         string $token, 
         string $query, 
-        string $contentType, 
+        string $contentType = "json", 
         string $pathFile = null    
     ): array {
         $this->validateParams($token, $contentType, $query);

@@ -1,0 +1,12 @@
+"query {
+  folder(id: \"$folderId\") {
+    id
+    name
+    slug
+    context
+    path
+    children_counter
+    created_at
+    updated_at
+  }
+}"
