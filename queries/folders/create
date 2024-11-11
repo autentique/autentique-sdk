@@ -1,0 +1,11 @@
+"mutation {
+  createFolder(folder: {name: \"$name\"}) {
+    id
+    name
+    slug
+    context
+    path
+    children_counter
+    created_at
+  }
+}"

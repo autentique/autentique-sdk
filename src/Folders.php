@@ -29,4 +29,25 @@ class Folders {
         $graphQuery = $this->query->setVariables(["limit", "page"], [$limit, $page], $graphQuery);
         return $this->api->request($this->token, $graphQuery);
     }
+
+    public function create(string $name) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("name", $name, $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
+
+    public function update(string $folderId, string $name) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables(["folderId", "name"], [$folderId, $name], $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
+
+    public function delete(string $folderId) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("folderId", $folderId, $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
 }
