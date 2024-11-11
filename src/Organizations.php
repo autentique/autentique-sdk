@@ -27,4 +27,11 @@ class Organizations {
         $graphQuery = $this->query->query(__FUNCTION__);
         return $this->api->request($this->token, $graphQuery);
     }
+
+    public function listGroups(int $organizationId, int $limit = 15, int $page = 1) {
+        $graphQuery = $this->query->query(__FUNCTION__);
+        $graphQuery = $this->query->setVariables(["organizationId", "limit", "page"], [$organizationId, $limit, $page], $graphQuery);
+        
+        return $this->api->request($this->token, $graphQuery);
+    }
 }

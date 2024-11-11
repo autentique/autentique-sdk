@@ -1,0 +1,22 @@
+"query{
+  organizationGroups(organization_id: $organizationId, limit: $limit, page: $page){
+    data{
+      id
+      uuid
+      name
+      company
+      cnpj
+      overwrite_template_group
+      overwrite_template
+      members_count
+      is_default
+    }
+    total
+    per_page
+    current_page
+    last_page
+    from
+    to
+    has_more_pages
+  }
+}"
