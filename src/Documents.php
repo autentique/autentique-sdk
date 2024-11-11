@@ -72,4 +72,22 @@ class Documents {
         return $this->api->request($this->token, $graphMutation, "form", $attributes["file"]);
     }
 
+    public function update(string $id, array $attributes) {
+        $variables = [
+            "id" => $id,
+            "document"=> $attributes
+        ];
+
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("variables", json_encode($variables), $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
+
+    public function delete(string $id) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("id", $id, $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
 }   
