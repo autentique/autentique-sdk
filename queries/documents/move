@@ -1,0 +1,7 @@
+"mutation MoveDocumentMutation(
+  $documentId: UUID!, 
+  $folderId: UUID
+) {
+    moveDocumentToFolder(document_id: $documentId, folder_id: $folderId)
+  }",
+"variables": $variables

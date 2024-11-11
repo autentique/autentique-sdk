@@ -1,0 +1,8 @@
+"mutation TransferDocumentMutation(
+    $documentId: UUID!,
+    $organizationId: Int!,
+    $groupId: Int!,
+) {
+  transferDocument(id: $documentId, organization_id: $organizationId, group_id: $groupId)
+}",
+"variables": $variables
