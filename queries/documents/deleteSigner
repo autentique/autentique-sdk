@@ -1,0 +1,3 @@
+"mutation {
+  deleteSigner(public_id: \"$signerId\", document_id: \"$documentId\")
+}"

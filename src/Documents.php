@@ -115,4 +115,30 @@ class Documents {
 
         return $this->api->request($this->token, $graphMutation);
     }
+
+    public function sign(string $documentId) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("documentId", $documentId, $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
+
+    public function createSigner(string $documentId, array $signer) {
+        $variables = [
+            "documentId" => $documentId,
+            "signer" => $signer
+        ];
+
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables("variables", json_encode($variables), $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
+
+    public function deleteSigner(string $signerId, string $documentId) {
+        $graphMutation = $this->query->query(__FUNCTION__);
+        $graphMutation = $this->query->setVariables(["signerId", "documentId"], [$signerId, $documentId], $graphMutation);
+
+        return $this->api->request($this->token, $graphMutation);
+    }
 }   

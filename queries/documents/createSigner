@@ -1,0 +1,59 @@
+"mutation CreateSignerMutation($documentId: UUID!, $signer: SignerInput!) {
+  createSigner(document_id: $documentId, signer: $signer) {
+    public_id
+    name
+    email
+    delivery_method
+    email_events{
+      id
+      sent
+      opened
+      refused
+      delivered
+      reason
+      type
+    }
+    positions {
+      x
+      y
+      z
+      angle
+      element
+    }
+    organization_id
+    group_id
+    created_at
+    updated_at
+    archived_at
+    action {
+      name
+    }
+    link {
+      id
+      short_link
+    }
+    user {
+      id
+      name
+      email
+      phone
+      cpf
+      cnpj
+      company
+      founder
+      user_hash
+      created_at
+      updated_at
+      referred_by
+    }
+    folder {
+      id
+      name
+      slug
+      context
+      path
+      children_counter
+    }
+  }
+}",
+"variables": $variables
