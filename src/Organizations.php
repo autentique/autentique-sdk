@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types= 1);
+
 namespace Autentique\SDK;
 
 use Autentique\SDK\Utils\Api;
@@ -18,12 +20,12 @@ class Organizations {
         $this->query = new Query("organizations");
     }
 
-    public function viewOrganization() {
+    public function view() {
         $graphQuery = $this->query->query(__FUNCTION__);
         return $this->api->request($this->token, $graphQuery);
     }
 
-    public function listOrganizations() {
+    public function list() {
         $graphQuery = $this->query->query(__FUNCTION__);
         return $this->api->request($this->token, $graphQuery);
     }
@@ -31,7 +33,7 @@ class Organizations {
     public function listGroups(int $organizationId, int $limit = 15, int $page = 1) {
         $graphQuery = $this->query->query(__FUNCTION__);
         $graphQuery = $this->query->setVariables(["organizationId", "limit", "page"], [$organizationId, $limit, $page], $graphQuery);
-        
+
         return $this->api->request($this->token, $graphQuery);
     }
 }

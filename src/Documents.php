@@ -23,21 +23,21 @@ class Documents {
         $this->query = new Query("documents");
     }
 
-    public function viewDocument(string $documentId) {
+    public function view(string $documentId) {
         $graphQuery = $this->query->query(__FUNCTION__);
         $graphQuery = $this->query->setVariables("docId", $documentId, $graphQuery);
         return $this->api->request($this->token, $graphQuery);
     }
 
-    public function listDocuments(int $page = 1, int $limit = 30) {
+    public function list(int $page = 1, int $limit = 30) {
         $graphQuery = $this->query->query(__FUNCTION__);
-        $graphQuery = $this->query->setVariables(["limit", "page"], [$limit, $page], $graphQuery);
+        $graphQuery = $this->query->setVariables(["limit", "page", "sandbox"], [$limit, $page, json_encode($this->sandbox)], $graphQuery);
         return $this->api->request($this->token, $graphQuery);
     }
 
-    public function listDocumentsByFolder(string $folderId, int $limit = 30, int $page = 1) {
+    public function listByFolder(string $folderId, int $limit = 30, int $page = 1) {
         $graphQuery = $this->query->query(__FUNCTION__);
-        $graphQuery = $this->query->setVariables(["folderId", "limit", "page"], [$folderId, $limit, $page], $graphQuery);
+        $graphQuery = $this->query->setVariables(["folderId", "limit", "page", "sandbox"], [$folderId, $limit, $page, json_encode($this->sandbox)], $graphQuery);
         return $this->api->request($this->token, $graphQuery);
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types= 1);
+
 namespace Autentique\SDK;
 
 use Autentique\SDK\Utils\Api;
@@ -18,13 +20,13 @@ class Folders {
         $this->query = new Query("folders");
     }
 
-    public function viewFolder(string $folderId) {
+    public function view(string $folderId) {
         $graphQuery = $this->query->query(__FUNCTION__);
         $graphQuery = $this->query->setVariables("folderId", $folderId, $graphQuery);
         return $this->api->request($this->token, $graphQuery);
     }
 
-    public function listFolders(int $limit = 10, int $page = 1) {
+    public function list(int $limit = 10, int $page = 1) {
         $graphQuery = $this->query->query(__FUNCTION__);
         $graphQuery = $this->query->setVariables(["limit", "page"], [$limit, $page], $graphQuery);
         return $this->api->request($this->token, $graphQuery);

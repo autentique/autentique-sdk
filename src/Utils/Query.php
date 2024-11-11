@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types= 1);
+
 namespace Autentique\SDK\Utils;
 
 class Query {
@@ -20,14 +22,14 @@ class Query {
         return preg_replace("/[\n\r]/", "", $query);
     }
 
-    public function setVariables($variables, $value, string $graphQuery) {
+    public function setVariables(string|array $variables, int|string|array|bool $value, string $graphQuery) {
         if(is_array($variables) && is_array($value)) {
             for($i = 0; $i < count($variables); $i++) {
                 $variable = "\$" . $variables[$i];
-                $graphQuery = str_replace($variable, $value[$i], $graphQuery);
+                $graphQuery = str_replace($variable, (string)$value[$i], $graphQuery);
             }
         } elseif(is_string($variables)) {
-            $graphQuery = str_replace("\$$variables", $value, $graphQuery);
+            $graphQuery = str_replace("\$$variables", (string)$value, $graphQuery);
         }
 
         return $graphQuery;
