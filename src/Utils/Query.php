@@ -14,7 +14,11 @@ class Query {
     }
 
     public function query(string $file) {
-        if(!file_exists("$this->resource") || empty($file)) {
+        if(!is_dir($this->resource)) {
+            throw new \Exception("The given resource directory does not exist");
+        }
+
+        if(!file_exists("$this->resource/$file") || empty($file)) {
             throw new \Exception("The file '$file' is not found", 400);
         }
         

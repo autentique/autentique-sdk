@@ -2,9 +2,6 @@
     "name": "autentique/autentique-sdk",
     "description": "SDK for Autentique GraphQL API",
     "type": "library",
-    "require": {
-        "phpunit/phpunit": "12.0.x-dev"
-    },
     "license": "MIT",
     "autoload": {
         "psr-4": {
@@ -17,5 +14,13 @@
             "email": "andre@autentique.com.br"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "pestphp/pest": "3.x-dev"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
