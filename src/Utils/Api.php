@@ -1,25 +1,46 @@
 <?php
 
+declare(strict_types= 1);
+
 namespace Autentique\SDK\Utils;
 
 use CURLFile;
 use Exception;
 
 class Api {
-
+    /**
+     * Allowed content-types
+     * @var array
+     */
     const ACCEPT_CONTENTS = ["json", "form"];
 
+    /**
+     * The API URL
+     * @var string
+     */
     private $url;
 
+    /**
+     * The timeout
+     * @var int
+     */
     private $timeout;
 
+    /** @param int $timeout */
     public function __construct(int $timeout = 60) {
         $env = new LoadEnv();
         $this->url = $env->getUrl();
         $this->timeout = $timeout;
     }
 
-    public function connect(array $httpHeader, $fields): array {
+    /**
+     * Function that connects with the API
+     * @param array $httpHeader
+     * @param mixed $fields
+     * @throws \Exception
+     * @return array
+     */
+    public function connect(array $httpHeader, array|string $fields): array {
         $curl = curl_init();
 
         curl_setopt_array(
@@ -51,6 +72,13 @@ class Api {
         return json_decode($response, true);
     }
 
+    /**
+     * @param string $token
+     * @param string $contentType
+     * @param string $query
+     * @throws \Exception
+     * @return void
+     */
     private function validateParams(string $token, string $contentType, string $query): void {
         if(empty($token)) {
             throw new Exception("Token field is empty",400);
@@ -68,6 +96,15 @@ class Api {
         }
     }
 
+    /**
+     * Function that makes the request 
+     * for the API and return the results
+     * @param string $token
+     * @param string $query
+     * @param string $contentType
+     * @param string $pathFile
+     * @return array
+     */
     public function request(
         string $token, 
         string $query, 

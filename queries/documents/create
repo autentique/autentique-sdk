@@ -2,13 +2,17 @@
   $document: DocumentInput!,
   $signers: [SignerInput!]!,
   $file: Upload!,
-  $sandbox: Boolean!
+  $sandbox: Boolean!,
+  $organizationId: Int,
+  $folder: UUID,
 ) {
   createDocument(
     sandbox: $sandbox,
     document: $document,
     signers: $signers,
-    file: $file
+    file: $file,
+    organization_id: $organizationId,
+    folder_id: $folder
   ) {
     id
     name
