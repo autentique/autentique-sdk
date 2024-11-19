@@ -4,21 +4,23 @@ declare(strict_types= 1);
 
 namespace Autentique\SDK;
 
+use Autentique\SDK\Utils\LoadEnv;
 use Autentique\SDK\Utils\Query;
 use Autentique\SDK\Utils\Api;
 
 class Documents {
     private $token;
 
+    private $sandbox;
+
     private $api;
 
     private $query;
 
-    private $sandbox;
-
-    public function __construct(string $token = null, int $timeout = 60, bool $sandbox = false) {
-        $this->sandbox = $sandbox;
-        $this->token = $token;
+    public function __construct(int $timeout = 60) {
+        $env = new LoadEnv();
+        $this->sandbox = $env->useSandbox();
+        $this->token = $env->getToken();
         $this->api = new Api();
         $this->query = new Query("documents");
     }

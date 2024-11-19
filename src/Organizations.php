@@ -5,6 +5,7 @@ declare(strict_types= 1);
 namespace Autentique\SDK;
 
 use Autentique\SDK\Utils\Api;
+use Autentique\SDK\Utils\LoadEnv;
 use Autentique\SDK\Utils\Query;
 
 class Organizations {
@@ -14,8 +15,9 @@ class Organizations {
 
     private $query;
 
-    public function __construct(string $token = null, int $timeout = 60) {
-        $this->token = $token;
+    public function __construct(int $timeout = 60) {
+        $env = new LoadEnv();
+        $this->token = $env->getToken();
         $this->api = new Api();
         $this->query = new Query("organizations");
     }

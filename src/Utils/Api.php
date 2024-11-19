@@ -14,7 +14,8 @@ class Api {
     private $timeout;
 
     public function __construct(int $timeout = 60) {
-        $this->url = "https://api.autentique.com.br/v2/graphql";
+        $env = new LoadEnv();
+        $this->url = $env->getUrl();
         $this->timeout = $timeout;
     }
 
